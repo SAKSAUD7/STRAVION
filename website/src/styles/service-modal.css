@@ -51,10 +51,21 @@
   margin-bottom: 1.5rem;
 }
 
-.svc-modal-icon {
-  font-size: 2.8rem;
-  line-height: 1;
+.svc-modal-icon-svg {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(214,176,106,0.1);
+  border: 1px solid rgba(214,176,106,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
+  color: #D6B06A;
+}
+.svc-modal-icon-svg svg {
+  width: 24px;
+  height: 24px;
 }
 
 .svc-modal-tag {
