@@ -19,15 +19,21 @@ export default function Stats() {
         scrollTrigger: { trigger: '.stats-intro', start: 'top 80%' }
       })
 
+      // FIX: use gsap.to with a proxy object — counts UP from 0 to target
       STATS.forEach((stat, i) => {
         const el = document.querySelectorAll('.stat-num')[i]
         if (!el) return
-        gsap.from({ val: 0 }, {
+        const proxy = { val: 0 }
+        gsap.to(proxy, {
           val: stat.num,
-          duration: 2,
+          duration: 2.2,
           ease: 'power2.out',
-          onUpdate() { el.textContent = Math.round(this.targets()[0].val) },
-          scrollTrigger: { trigger: el, start: 'top 85%' }
+          onUpdate() { el.textContent = Math.round(proxy.val) },
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 85%',
+            once: true,          // only fires once — prevents reverse on scroll back
+          }
         })
       })
 

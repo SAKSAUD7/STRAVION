@@ -7,11 +7,14 @@
   --dark: #0d0d0d;
   --dark-2: #111111;
   --charcoal: #1c1c1c;
+  --obsidian: #0a0a0a;
   --gold: #D6B06A;
   --gold-light: #E4C98A;
   --gold-bright: #f0d898;
   --gold-dark: #8E6C3F;
   --white: #F6F3EE;
+  --cream: #F6F3EE;
+  --silver: rgba(246,243,238,0.6);
   --white-60: rgba(246,243,238,0.6);
   --white-20: rgba(246,243,238,0.2);
   --white-10: rgba(246,243,238,0.08);
@@ -20,6 +23,7 @@
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Outfit', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'Outfit', monospace;
   --ease: cubic-bezier(0.76,0,0.24,1);
   --ease-out: cubic-bezier(0.16,1,0.3,1);
   --nav-h: 88px;

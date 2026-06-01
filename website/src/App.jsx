@@ -1,29 +1,28 @@
 import { useEffect, useRef, useState } from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Lenis from 'lenis'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
+import Navbar from './components/Navbar'
 import Cursor from './components/Cursor'
 import Preloader from './components/Preloader'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import Marquee from './components/Marquee'
-import About from './components/About'
-import Services from './components/Services'
-import Stats from './components/Stats'
-import Projects from './components/Projects'
-import ParallaxBand from './components/ParallaxBand'
-import Process from './components/Process'
-import Testimonials from './components/Testimonials'
-import CTA from './components/CTA'
-import Footer from './components/Footer'
+import WhatsAppFloat from './components/WhatsAppFloat'
+
+import HomePage from './pages/HomePage'
+import AboutPage from './pages/AboutPage'
+import ProjectsPage from './pages/ProjectsPage'
+import ProjectDetail from './pages/ProjectDetail'
+import ContactPage from './pages/ContactPage'
 
 gsap.registerPlugin(ScrollTrigger)
 
 export default function App() {
   const [loaded, setLoaded] = useState(false)
   const lenisRef = useRef(null)
+  const location = useLocation()
 
+  // Init Lenis smooth scroll
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.4,
@@ -31,16 +30,20 @@ export default function App() {
       smoothWheel: true,
     })
     lenisRef.current = lenis
-
     lenis.on('scroll', ScrollTrigger.update)
     gsap.ticker.add((time) => lenis.raf(time * 1000))
     gsap.ticker.lagSmoothing(0)
-
     return () => {
       lenis.destroy()
-      gsap.ticker.remove((time) => lenis.raf(time * 1000))
     }
   }, [])
+
+  // Scroll to top and refresh ScrollTrigger on route change
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    if (lenisRef.current) lenisRef.current.scrollTo(0, { immediate: true })
+    ScrollTrigger.refresh()
+  }, [location.pathname])
 
   // Scroll progress bar
   useEffect(() => {
@@ -63,21 +66,19 @@ export default function App() {
       }} />
       <Cursor />
       {!loaded && <Preloader onComplete={() => setLoaded(true)} />}
+
+      {/* Navbar is ALWAYS visible — never hidden by preloader opacity */}
+      <Navbar />
+
       <div style={{ opacity: loaded ? 1 : 0, transition: 'opacity 0.5s ease' }}>
-        <Navbar />
-        <main>
-          <Hero />
-          <Marquee />
-          <About />
-          <Services />
-          <Stats />
-          <Projects />
-          <ParallaxBand />
-          <Process />
-          <Testimonials />
-          <CTA />
-        </main>
-        <Footer />
+        <Routes>
+          <Route path="/"           element={<HomePage />} />
+          <Route path="/about"      element={<AboutPage />} />
+          <Route path="/projects"   element={<ProjectsPage />} />
+          <Route path="/projects/:id" element={<ProjectDetail />} />
+          <Route path="/contact"    element={<ContactPage />} />
+        </Routes>
+        <WhatsAppFloat />
       </div>
     </>
   )

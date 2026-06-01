@@ -1,0 +1,373 @@
+/* ══════════════════════════════════════════════
+   ABOUT PAGE — Stravion Construction Group
+   Clean, premium, properly structured
+══════════════════════════════════════════════ */
+
+/* ── HERO ───────────────────────────────────── */
+.ap-hero {
+  position: relative;
+  height: 100vh;
+  min-height: 620px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+.ap-hero-img-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.ap-hero-img {
+  width: 100%;
+  height: 115%;
+  object-fit: cover;
+  will-change: transform;
+}
+.ap-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.25) 0%,
+    rgba(0,0,0,0.55) 50%,
+    rgba(0,0,0,0.84) 100%
+  );
+}
+.ap-hero-content {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 5.5rem;
+}
+.ap-hero-label { margin-bottom: 20px; }
+.ap-hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 7.5vw, 6.5rem);
+  color: var(--cream);
+  line-height: 1.07;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  margin: 0.5rem 0 1.25rem;
+  /* Each TextReveal is a block; the wrapper stacks them vertically */
+}
+/* Plain line (white) */
+.ap-title-plain {
+  display: block;
+}
+/* Italic gold line */
+.ap-title-em {
+  display: block;
+  color: var(--gold);
+  font-style: italic;
+}
+.ap-hero-sub {
+  color: var(--silver);
+  font-size: 1.05rem;
+}
+
+/* ── STATS STRIP ────────────────────────────── */
+.ap-stats-section {
+  background: var(--obsidian);
+  border-top:    1px solid rgba(212,175,80,0.14);
+  border-bottom: 1px solid rgba(212,175,80,0.14);
+}
+.ap-stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 2.75rem 0;
+}
+.ap-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem 0;
+  border-right: 1px solid rgba(255,255,255,0.06);
+}
+.ap-stat:last-child { border-right: none; }
+.ap-stat-num {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  background: linear-gradient(135deg, #8E6C3F 0%, #E4C98A 50%, #D6B06A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  line-height: 1;
+}
+.ap-stat-label {
+  color: var(--silver);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-top: 0.5rem;
+}
+
+/* ── STORY ──────────────────────────────────── */
+.ap-story { background: var(--black); }
+.ap-story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+.ap-story-img-wrap {
+  position: relative;
+  border-radius: 1.25rem;
+  overflow: hidden;
+}
+.ap-story-img-wrap img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  display: block;
+  border-radius: 1.25rem;
+  transition: transform 0.8s var(--ease);
+}
+.ap-story-img-wrap:hover img { transform: scale(1.03); }
+.ap-story-badge {
+  position: absolute;
+  bottom: 1.75rem;
+  right: 1.75rem;
+  background: rgba(10,10,10,0.88);
+  border: 1px solid rgba(212,175,80,0.28);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 1rem;
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+}
+.ap-story-badge .badge-num {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: var(--gold);
+  font-weight: 700;
+  line-height: 1;
+}
+.ap-story-badge .badge-txt {
+  font-size: 0.68rem;
+  color: var(--silver);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: block;
+  margin-top: 0.3rem;
+}
+.ap-story-content { display: flex; flex-direction: column; gap: 0; }
+.about-body {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--silver);
+  line-height: 1.85;
+  margin-bottom: 1.1rem;
+}
+.about-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+/* ── OUR JOURNEY / TIMELINE ─────────────────── */
+.ap-timeline-section {
+  background: rgba(255,255,255,0.015);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.ap-timeline-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+.ap-timeline-header .section-label { justify-content: center; }
+.ap-timeline-header .section-label::before { display: none; }
+
+/*
+  TIMELINE GRID STRUCTURE
+  ─────────────────────────────────────
+  Each item is a 3-column grid:
+    [left card zone]  [dot/spine col]  [right card zone]
+  The spine is an absolutely positioned element
+  running the full height of .ap-tl-list.
+*/
+.ap-tl-list {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Vertical spine (absolute, centered) ── */
+.ap-tl-spine {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  z-index: 0;
+  pointer-events: none;
+}
+.ap-tl-spine-track {
+  width: 100%;
+  height: 100%;
+  background: rgba(212,175,80,0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.ap-tl-spine-fill {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, var(--gold-dark), var(--gold), var(--gold-light));
+  will-change: transform;
+}
+
+/* ── Each timeline item ── */
+.ap-tl-item {
+  display: grid;
+  grid-template-columns: 1fr 48px 1fr;
+  align-items: center;
+  padding: 24px 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Card wrapper — collapses on the empty side */
+.ap-tl-card-wrap { min-height: 1px; }
+
+/* LEFT item: card on left, spacer on right */
+.ap-tl-left .ap-tl-card-wrap { grid-column: 1; padding-right: 28px; }
+.ap-tl-left .ap-tl-dot-wrap   { grid-column: 2; }
+.ap-tl-left .ap-tl-spacer     { grid-column: 3; }
+
+/* RIGHT item: spacer on left, card on right */
+.ap-tl-right .ap-tl-spacer     { grid-column: 1; }
+.ap-tl-right .ap-tl-dot-wrap   { grid-column: 2; }
+.ap-tl-right .ap-tl-card-wrap  { grid-column: 3; padding-left: 28px; }
+
+/* Dot */
+.ap-tl-dot-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ap-tl-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 4px rgba(212,175,80,0.2), 0 0 0 8px rgba(212,175,80,0.07);
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+/* Card */
+.ap-tl-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(212,175,80,0.12);
+  border-radius: 1rem;
+  padding: 1.5rem 1.6rem;
+  transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+}
+.ap-tl-card:hover {
+  border-color: rgba(212,175,80,0.3);
+  background: rgba(212,175,80,0.04);
+  transform: translateY(-3px);
+}
+.ap-tl-year {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--gold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.45rem;
+}
+.ap-tl-title {
+  color: var(--cream);
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+.ap-tl-desc {
+  color: var(--silver);
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+/* ── PILLARS ────────────────────────────────── */
+.ap-pillars-section { background: var(--obsidian); }
+.ap-pillars-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+.ap-pillars-header .section-label { justify-content: center; }
+.ap-pillars-header .section-label::before { display: none; }
+
+.ap-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+.ap-pillar {
+  background: rgba(255,255,255,0.028);
+  border: 1px solid rgba(212,175,80,0.1);
+  border-radius: 1.25rem;
+  padding: 2rem 1.75rem;
+  transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease,
+              box-shadow 0.3s ease;
+  will-change: transform;
+}
+.ap-pillar:hover {
+  border-color: rgba(212,175,80,0.35);
+  background: rgba(212,175,80,0.045);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+}
+.ap-pillar-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+.ap-pillar-title {
+  color: var(--cream);
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  margin-bottom: 0.65rem;
+  line-height: 1.3;
+}
+.ap-pillar-desc {
+  color: var(--silver);
+  font-size: 0.875rem;
+  line-height: 1.75;
+}
+
+/* ── RESPONSIVE ─────────────────────────────── */
+@media (max-width: 1024px) {
+  .ap-story-grid     { grid-template-columns: 1fr; gap: 3rem; }
+  .ap-pillars-grid   { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .ap-stats-row { grid-template-columns: repeat(2, 1fr); }
+
+  /* Timeline collapses to single left-aligned column */
+  .ap-tl-spine { display: none; }
+  .ap-tl-item {
+    grid-template-columns: 24px 1fr;
+    grid-template-rows: auto;
+    padding: 16px 0;
+  }
+  /* All items: dot in col 1, card in col 2 */
+  .ap-tl-left .ap-tl-dot-wrap,
+  .ap-tl-right .ap-tl-dot-wrap  { grid-column: 1; grid-row: 1; }
+  .ap-tl-left .ap-tl-card-wrap,
+  .ap-tl-right .ap-tl-card-wrap { grid-column: 2; grid-row: 1; padding: 0 0 0 16px; }
+  .ap-tl-left .ap-tl-spacer,
+  .ap-tl-right .ap-tl-spacer    { display: none; }
+
+  /* Mobile dot styling */
+  .ap-tl-dot-wrap { align-items: flex-start; padding-top: 1.4rem; }
+
+  .ap-pillars-grid { grid-template-columns: 1fr; }
+  .ap-story-img-wrap img { height: 340px; }
+}
+
+@media (max-width: 480px) {
+  .ap-stats-row { grid-template-columns: repeat(2, 1fr); }
+}

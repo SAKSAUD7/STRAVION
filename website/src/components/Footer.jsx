@@ -1,11 +1,12 @@
+import { Link } from 'react-router-dom'
 import '../styles/footer.css'
 
 const LogoSVG = () => (
   <svg width="36" height="36" viewBox="0 0 80 80" fill="none">
     <defs>
       <linearGradient id="ftgld" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stopColor="#8E6C3F"/>
-        <stop offset="50%" stopColor="#E4C98A"/>
+        <stop offset="0%"   stopColor="#8E6C3F"/>
+        <stop offset="50%"  stopColor="#E4C98A"/>
         <stop offset="100%" stopColor="#D6B06A"/>
       </linearGradient>
     </defs>
@@ -20,12 +21,14 @@ const SERVICES = [
   'Electrical Works', 'Plastering & Decorating', 'Tiling & Flooring',
 ]
 
-export default function Footer() {
-  const scroll = (href) => {
-    const el = document.querySelector(href)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
-  }
+const NAV_LINKS = [
+  ['/', 'Home'],
+  ['/about', 'About Us'],
+  ['/projects', 'Projects'],
+  ['/contact', 'Contact'],
+]
 
+export default function Footer() {
   return (
     <footer id="footer" className="footer">
       <div className="footer-top">
@@ -48,7 +51,7 @@ export default function Footer() {
             <div className="footer-socials">
               <a href="https://wa.me/447706938064" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="social-link">WA</a>
               <a href="mailto:info@stravion.co.uk" aria-label="Email" className="social-link">EM</a>
-              <a href="https://www.stravion.co.uk" aria-label="Website" className="social-link">WEB</a>
+              <a href="https://www.stravion.co.uk" target="_blank" rel="noopener noreferrer" aria-label="Website" className="social-link">WEB</a>
             </div>
           </div>
 
@@ -57,7 +60,7 @@ export default function Footer() {
             <h4 className="footer-col-title">Our Services</h4>
             <ul className="footer-links">
               {SERVICES.map(s => (
-                <li key={s}><a href="#services" onClick={(e) => { e.preventDefault(); scroll('#services') }}>{s}</a></li>
+                <li key={s}><Link to="/contact">{s}</Link></li>
               ))}
             </ul>
           </div>
@@ -66,8 +69,8 @@ export default function Footer() {
           <div className="footer-col">
             <h4 className="footer-col-title">Quick Links</h4>
             <ul className="footer-links">
-              {[['#about','About Us'],['#services','Services'],['#projects','Projects'],['#process','Our Process'],['#footer','Contact']].map(([href, label]) => (
-                <li key={label}><a href={href} onClick={(e) => { e.preventDefault(); scroll(href) }}>{label}</a></li>
+              {NAV_LINKS.map(([to, label]) => (
+                <li key={label}><Link to={to}>{label}</Link></li>
               ))}
             </ul>
           </div>
@@ -96,7 +99,12 @@ export default function Footer() {
 
             <div className="footer-cta-block">
               <p className="footer-cta-label">Ready to start your project?</p>
-              <a href="tel:07706938064" className="btn-gold" style={{ fontSize: '10px', padding: '14px 28px' }}>
+              <a
+                href="https://wa.me/447706938064?text=Hi Stravion! I'd like a free quote."
+                target="_blank" rel="noopener noreferrer"
+                className="btn-gold"
+                style={{ fontSize: '10px', padding: '14px 28px' }}
+              >
                 <span>Get A Free Quote</span>
               </a>
             </div>

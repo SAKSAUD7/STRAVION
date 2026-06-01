@@ -1,0 +1,328 @@
+/* ── PROJECTS PAGE ────────────────────────────── */
+
+/* HERO */
+.pp-hero {
+  position: relative;
+  height: 75vh;
+  min-height: 560px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+.pp-hero-bg {
+  position: absolute; inset: 0;
+}
+.pp-hero-bg img {
+  width: 100%; height: 115%;
+  object-fit: cover;
+  transform-origin: center;
+}
+.pp-hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.82) 100%);
+}
+.pp-hero-content {
+  position: relative; z-index: 2;
+  padding-bottom: 4.5rem;
+}
+.pp-hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  color: var(--cream);
+  line-height: 1.08;
+  margin: 0.6rem 0 1rem;
+  display: block;
+}
+/* Each TextReveal line is a block; em lines get gold italic */
+.pp-hero-title .pp-title-em {
+  display: block;
+  color: var(--gold);
+  font-style: italic;
+}
+.pp-hero-sub {
+  color: var(--silver);
+  font-size: 1rem;
+  max-width: 500px;
+  margin-bottom: 2rem;
+  line-height: 1.65;
+}
+.pp-hero-stats {
+  display: flex;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+.pp-hstat span {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  background: linear-gradient(135deg, #8E6C3F, #E4C98A, #D6B06A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  font-weight: 700;
+}
+.pp-hstat p {
+  color: var(--silver);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-top: 0.3rem;
+}
+
+/* ── BODY ── */
+.pp-count {
+  color: var(--silver);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+/* FILTERS */
+.pp-filters {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+/* ── CARD GRID ── */
+.pp-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 6rem;
+}
+
+/* Featured first card — full width */
+.pp-card--featured {
+  grid-column: span 2;
+}
+.pp-card--featured .pp-card-img {
+  aspect-ratio: 16/7;
+}
+.pp-card--featured .pp-card-title {
+  font-size: 1.5rem;
+}
+
+/* Card base */
+.pp-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  text-decoration: none;
+  transition: border-color 0.35s, transform 0.35s;
+}
+.pp-card:hover {
+  border-color: rgba(212,175,80,0.3);
+  transform: translateY(-4px);
+}
+
+.pp-card-img {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+.pp-card-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.65s ease;
+}
+.pp-card:hover .pp-card-img img {
+  transform: scale(1.06);
+}
+
+/* Badges */
+.pp-vid-badge {
+  position: absolute;
+  top: 0.9rem; left: 0.9rem;
+  background: rgba(0,0,0,0.72);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(37,211,102,0.4);
+  color: #25D366;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 0.35rem 0.75rem;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.pp-media-count {
+  position: absolute;
+  top: 0.9rem; right: 0.9rem;
+  background: rgba(0,0,0,0.72);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: var(--silver);
+  font-size: 0.68rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 2rem;
+}
+
+/* Card info */
+.pp-card-info {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.pp-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.pp-card-cat {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+.pp-card-year {
+  font-size: 0.75rem;
+  color: var(--silver);
+}
+.pp-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: var(--cream);
+  line-height: 1.25;
+}
+.pp-card-sub {
+  font-size: 0.8rem;
+  color: var(--silver);
+  line-height: 1.4;
+}
+.pp-card-meta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 0.25rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.pp-card-meta span {
+  font-size: 0.75rem;
+  color: var(--silver);
+}
+.pp-card-cta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--gold);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-top: 0.25rem;
+  transition: gap 0.25s;
+}
+.pp-card:hover .pp-card-cta { gap: 0.85rem; }
+
+/* ── VIDEO SHOWCASE ── */
+.pp-video-section {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 5rem;
+  margin-bottom: 5rem;
+}
+.pp-video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+.pp-video-card {
+  position: relative;
+  aspect-ratio: 16/9;
+  border-radius: 1rem;
+  overflow: hidden;
+  display: block;
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: border-color 0.3s, transform 0.3s;
+}
+.pp-video-card:hover {
+  border-color: rgba(37,211,102,0.35);
+  transform: translateY(-3px);
+}
+.pp-video-card video {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.pp-video-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.55) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: background 0.3s;
+}
+.pp-video-card:hover .pp-video-overlay {
+  background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.65) 100%);
+}
+.pp-video-play {
+  width: 52px; height: 52px;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(255,255,255,0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: #fff;
+  transition: all 0.25s;
+  margin: 0 auto 0.75rem;
+}
+.pp-video-card:hover .pp-video-play {
+  background: rgba(37,211,102,0.2);
+  border-color: #25D366;
+  color: #25D366;
+  transform: scale(1.1);
+}
+.pp-video-meta {
+  width: 100%;
+  padding: 1rem;
+}
+.pp-video-cat {
+  font-size: 0.62rem;
+  color: var(--gold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.pp-video-title {
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+/* ── BOTTOM CTA ── */
+.pp-bottom-cta {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 5rem;
+  text-align: center;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .pp-video-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .pp-grid { grid-template-columns: 1fr; }
+  .pp-card--featured { grid-column: span 1; }
+  .pp-card--featured .pp-card-img { aspect-ratio: 4/3; }
+  .pp-video-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
+  .pp-video-grid { grid-template-columns: 1fr; }
+  .pp-card-meta { flex-direction: column; gap: 0.35rem; }
+}

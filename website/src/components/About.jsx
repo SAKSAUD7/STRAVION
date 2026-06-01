@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import '../styles/about.css'
@@ -33,7 +34,7 @@ export default function About() {
     <section id="about" ref={sectionRef} className="about section-pad">
       <div className="container about-grid">
         <div className="about-img-wrap">
-          <img src="/assets/img-living.jpeg" alt="STRAVION luxury interior project" loading="lazy" />
+          <img src="/assets/proj-b8.jpeg" alt="STRAVION luxury interior project" loading="lazy" />
           <div className="about-img-badge">
             <span className="badge-num">15+</span>
             <span className="badge-txt">Years of Excellence</span>
@@ -71,9 +72,9 @@ export default function About() {
           </ul>
 
           <div className="about-ctas">
-            <a href="#services" className="btn-gold" onClick={(e) => { e.preventDefault(); document.querySelector('#services').scrollIntoView({ behavior: 'smooth' }) }}>
-              <span>Our Services</span>
-            </a>
+            <Link to="/about" className="btn-gold">
+              <span>Our Story</span>
+            </Link>
             <a href="tel:07706938064" className="btn-outline">
               <span>Call Us Today</span>
             </a>

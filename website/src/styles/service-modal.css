@@ -1,0 +1,209 @@
+/* ── SERVICE MODAL ─────────────────────────────── */
+.svc-modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.82);
+  backdrop-filter: blur(8px);
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.svc-modal-box {
+  position: relative;
+  background: linear-gradient(145deg, #1a1a1a 0%, #111 100%);
+  border: 1px solid rgba(212,175,80,0.25);
+  border-radius: 1.5rem;
+  max-width: 680px;
+  width: 100%;
+  padding: 2.5rem;
+  max-height: 90vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold) transparent;
+}
+
+.svc-modal-close {
+  position: absolute;
+  top: 1.25rem; right: 1.25rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--silver);
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+.svc-modal-close:hover {
+  background: rgba(212,175,80,0.15);
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+.svc-modal-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.svc-modal-icon {
+  font-size: 2.8rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.svc-modal-tag {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.svc-modal-title {
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  color: var(--cream);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.svc-modal-desc {
+  color: var(--silver);
+  line-height: 1.75;
+  margin-bottom: 1.75rem;
+  font-size: 0.95rem;
+}
+
+.svc-modal-includes {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(212,175,80,0.12);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.svc-modal-includes h4 {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.svc-modal-includes ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem 1rem;
+}
+
+.svc-modal-includes li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  color: var(--silver);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.svc-modal-check {
+  color: var(--gold);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.svc-modal-typical {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(212,175,80,0.06);
+  border: 1px solid rgba(212,175,80,0.2);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+.svc-modal-typical span {
+  font-size: 0.8rem;
+  color: var(--silver);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.svc-modal-typical strong {
+  color: var(--gold);
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: 1.1rem;
+}
+
+.svc-modal-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.svc-modal-wa-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.5rem;
+  background: #25D366;
+  color: #fff;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.25s;
+  min-width: 200px;
+}
+.svc-modal-wa-btn:hover {
+  background: #1ebe5d;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37,211,102,0.35);
+}
+
+.svc-modal-call-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.5rem;
+  background: transparent;
+  border: 1px solid rgba(212,175,80,0.35);
+  color: var(--gold);
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.25s;
+  white-space: nowrap;
+}
+.svc-modal-call-btn:hover {
+  background: rgba(212,175,80,0.1);
+  border-color: var(--gold);
+}
+
+/* ── SERVICE CARD cursor pointer ── */
+.service-card { cursor: pointer; }
+.service-card:hover .service-arrow {
+  transform: translateX(6px);
+  color: var(--gold);
+}
+
+@media (max-width: 600px) {
+  .svc-modal-box { padding: 1.5rem; }
+  .svc-modal-includes ul { grid-template-columns: 1fr; }
+  .svc-modal-actions { flex-direction: column; }
+  .svc-modal-wa-btn { min-width: unset; }
+}
